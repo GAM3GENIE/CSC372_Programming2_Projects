@@ -1,6 +1,6 @@
 public class Cone extends Shape{
-    public final double radius;
-    public final double height;
+    private final double radius;
+    private final double height;
 
     public Cone(double radius, double height){
         this.radius = radius;
