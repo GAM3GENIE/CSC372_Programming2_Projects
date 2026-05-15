@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ProvideProduct {
@@ -14,8 +15,16 @@ public class ProvideProduct {
         int[] numbers = new int[5];
 
         for(int i = 0; i < numbers.length; i++){
-            System.out.println("Enter a number " + (i + 1) + ": ");
-            numbers[i] = sc.nextInt();
+            while(true) {
+                try {
+                    System.out.println("Enter a number " + (i + 1) + ": ");
+                    numbers[i] = sc.nextInt();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a whole number.");
+                    sc.next();
+                }
+            }
         }
 
         int product = productNumbers(numbers, 0);
